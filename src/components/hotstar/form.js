@@ -6,24 +6,47 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 
 function Form() {
   const [showFacebookForm, setshowFacebookForm] = useState(true);
+  const [mobileContinue, setmobileContinue] = useState(false);
+  const [initialText, setinitialText] = useState('Login to continue');
   const loginWithEmail = () => {
     setshowFacebookForm(!showFacebookForm);
   };
 
+  const mobileClick = e => {
+    setinitialText('Continue using Phone');
+    setmobileContinue(true);
+  };
+
+  const mobileContinueBack = () => {
+    setmobileContinue(false);
+    setinitialText('Login to continue');
+  };
   return (
     <div className="loginform">
       {showFacebookForm ? (
         <div>
+          {mobileContinue && (
+            <div
+              className="loginform__label mb-30"
+              onClick={mobileContinueBack}
+            >
+              <ArrowBackIcon style={{ fill: '#1f80e0' }} />
+            </div>
+          )}
           <div className="loginform__label mb-60">
-            <span>Login to continue</span>
+            <span>{initialText}</span>
           </div>
-          <div className="loginform__button mb-20" onClick={loginWithEmail}>
-            <span>Have a Facebook/Email account?</span>
-          </div>
-          <div className="loginform__text mb-30">
-            <span>or</span>
-          </div>
-          <div className="loginform__input">
+          {!mobileContinue && (
+            <div className="loginform__button mb-20" onClick={loginWithEmail}>
+              <span>Have a Facebook/Email account?</span>
+            </div>
+          )}
+          {!mobileContinue && (
+            <div className="loginform__text mb-30">
+              <span>or</span>
+            </div>
+          )}
+          <div className="loginform__input mb-30">
             <span className="country-code space">+91</span>
             <span className="separator space">|</span>
             <span className="input-feild">
@@ -31,9 +54,18 @@ function Form() {
                 className="form"
                 type="text"
                 placeholder="Enter your mobile number"
+                onClick={mobileClick}
               />
             </span>
           </div>
+          {mobileContinue && (
+            <div className="loginform__button continue-color mb-10">
+              <span>CONTINUE</span>
+              <span className="continue-icon">
+                <ArrowForwardIosIcon style={{ fontSize: 12 }} />
+              </span>
+            </div>
+          )}
         </div>
       ) : (
         <div>
@@ -54,16 +86,18 @@ function Form() {
           </div>
           <div className="loginform__button continue-color mb-20">
             <span>CONTINUE</span>
-            <span className="fb-icon">
-              <ArrowForwardIosIcon style={{fontSize:12}}/>
+            <span className="continue-icon">
+              <ArrowForwardIosIcon style={{ fontSize: 12 }} />
             </span>
           </div>
           <div className="loginform__text mb-20">
             <span>OR</span>
           </div>
           <div className="loginform__button fb-color">
-            <FacebookIcon />
-            <span>LOGIN WITH FACEBOOK</span>
+            <span className="fb-icon">
+              <FacebookIcon />
+            </span>
+            <span className="pt-2">LOGIN WITH FACEBOOK</span>
           </div>
         </div>
       )}

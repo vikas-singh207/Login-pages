@@ -1,6 +1,7 @@
 import React from 'react';
 import './hotstar.scss';
 import Form from './form';
+import Footer from './footer';
 function HotStar(){
 
   return(
@@ -9,6 +10,7 @@ function HotStar(){
         <img src="https://secure-media.hotstarext.com/web-assets/prod/images/brand-logos/disney-hotstar-logo-dark.svg"/>
       </div>
       <Form/>
+      <Footer/>
     </div>
   )
 }

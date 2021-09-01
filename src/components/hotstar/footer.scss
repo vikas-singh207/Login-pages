@@ -1,0 +1,64 @@
+.footer {
+  font-family: 'Roboto', 'HelveticaNeue-Light', sans-serif;
+  color: #dadada;
+  padding: 50px;
+  background: linear-gradient(#141b29, #0c111b 300px);;
+  font-size: 14px;
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+  }
+  .nav-copyright {
+    width: 50%;
+  }
+  .footer-navigation {
+    display: flex;
+    list-style: none;
+    margin-bottom: 30px;
+
+    .footer-links {
+      margin-right: 15px;
+      font-size: 14px;
+    }
+  }
+
+  .footer-copyright {
+    font-size: 12px;
+  }
+
+  .social-label {
+    margin-bottom: 10px;
+  }
+  .social-icons {
+    display: flex;
+
+    .icon {
+      height: 45px;
+      width: 45px;
+      background: linear-gradient(#141b29, #0c111b 300px);
+      margin-right: 10px;
+      padding: 8px;
+    }
+  }
+
+  .appstore {
+    &__label {
+      margin-bottom: 10px;
+    }
+
+    &__icons {
+      .appicons {
+        background-image: url('https://www.hotstar.com/assets/67764ffe0b6b18e06d60049a00c86335.svg');
+        height: 45px;
+        width: 275px;
+        display: flex;
+
+        .playstore {
+          height: 45px;
+          width: 135px;
+        }
+      }
+    }
+  }
+}
